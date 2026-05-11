@@ -1,0 +1,27 @@
+{
+  "name": "playwright-bdd-booking",
+  "version": "1.0.0",
+  "description": "Playwright + Cucumber BDD E2E test framework for Shady Meadows B&B booking",
+  "scripts": {
+    "test": "cucumber-js --config cucumber.config.cjs",
+    "test:smoke": "cucumber-js --config cucumber.config.cjs --tags @smoke",
+    "test:regression": "cucumber-js --config cucumber.config.cjs --tags @regression",
+    "test:booking": "cucumber-js --config cucumber.config.cjs --tags @booking",
+    "test:headed": "set HEADLESS=false && cucumber-js --config cucumber.config.cjs",
+    "test:parallel": "cucumber-js --config cucumber.config.cjs --parallel 2",
+    "posttest": "node utils/generateReport.js",
+    "posttest:smoke": "node utils/generateReport.js",
+    "posttest:regression": "node utils/generateReport.js",
+    "posttest:booking": "node utils/generateReport.js",
+    "report": "node utils/generateReport.js",
+    "notify": "node utils/notifier.js"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "9.6.0",
+    "@cucumber/html-formatter": "^21.7.0",
+    "chai": "^5.2.0",
+    "dotenv": "^16.4.7",
+    "nodemailer": "^6.9.14",
+    "playwright": "^1.52.0"
+  }
+}
